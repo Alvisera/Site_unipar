@@ -8,16 +8,27 @@
     <link rel="icon" href="logounipar-Photoroom1.png" type="image/png" class="logoaba">
 </head>
 <body>
-    <div class="container">
+    <div id="container">
         <div class="logounipar">
             <img class = 'logo' src="logounipar-Photoroom1.png" alt="logo_unipar">
         </div>      
-        <h1 class="title">Seja Bem-Vindo ao Chat Unipar</h1>
+        <h1 class="title">Seja Bem-Vindo ao Chat Unipar!</h1>
         <div class="login-box">
             <label for="username">NOME DE USUÁRIO</label>
-            <input type="text" id="username" placeholder="Insira seu nome">
-            <button>Acessar a sala de bate-papo</button>
+            <input type="text" id="username" placeholder="Escolha seu nome de usuário">
+            <button onclick="enterChatRoom()">Acessar A Sala de Bate-Papo</button>
         </div>
     </div>
+    <div id="chat-room">
+        <h2>Sala de Bate-Papo UNIPAR</h2>
+        <div id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Digite sua mensagem"/>
+        <button onclick="sendMessage()">Enviar</button>
+        <button onclick="leaveChat()">Sair da Sala</button>        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs/lib/stomp.min.js"></script>    
+    <script src="script.js"></script>
 </body>
 </html>
