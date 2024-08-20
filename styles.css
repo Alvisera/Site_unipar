@@ -89,6 +89,11 @@ h1 {
     text-align: center;
 }
 
+.chat {
+    width: 70%;
+    height: 50%;
+}
+
 @media (max-width: 768px) {
     .title {
         font-size: 1.5rem;
@@ -97,5 +102,16 @@ h1 {
     .login-box {
         width: 70%;
     }
+
 }
 
+#messages {
+    border: solid#ddd;
+    padding: 10px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+#chat-room{
+    display:none;
+}
