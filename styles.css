@@ -1,3 +1,20 @@
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .login-box {
+        width: 70%;
+    }
+
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -12,10 +29,20 @@ body {
     height: 100vh;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+#chat-room{
+    display:none;
+    overflow: hidden;
+    
+}
+
+#messages {
+    background-color: #D9D9D9;
+    border: solid#ddd;
+    padding: 70px;
+    height: 300px;
+    width: 700px;
+    border-radius: 30px;
+    border: 1px solid #000000;    
 }
 
 .container {
@@ -94,24 +121,41 @@ h1 {
     height: 50%;
 }
 
-@media (max-width: 768px) {
-    .title {
-        font-size: 1.5rem;
-    }
-
-    .login-box {
-        width: 70%;
-    }
-
+.batepapo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-#messages {
-    border: solid#ddd;
+.escreva {
+    border-radius: 30px;
+    border: 1px solid #000000;  
     padding: 10px;
-    height: 300px;
-    overflow-y: scroll;
+    margin-top: 50px;
+    margin-left: 30px;
+    
 }
 
-#chat-room{
-    display:none;
+.enviar {
+    background-color: #3498DB;
+    border: 0px;
+    border-radius: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s;
+    width: 9%;
+
+}   
+
+.enviar:hover {
+    background-color: #76B9F1;
+}
+
+.sair_sala {
+    margin-left: 450px;
+    border-radius: 30px;
+    border: 0px;
+
 }
