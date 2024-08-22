@@ -15,37 +15,86 @@
     100% { background-position: 0% 50%; }
 }
 
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px #ff0000; }
+    50% { box-shadow: 0 0 10px #ff0000; }
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #4BC0C8, #C779D0, #FEAC5E);
-    /*background: linear-gradient(135deg, #ff0000, #ab0e0e, #ff7f7f);*/
+    animation: gradientBG 7s ease infinite;
+    background: linear-gradient(135deg, #7B68EE 25%, #87CEEB 50%, #46ADB4 75%);
     background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
+    /*background: linear-gradient(135deg, #4BC0C8, #C779D0, #FEAC5E);*/
 }
 
-#chat-room{
-    display:none;
-    
+#chat-room, #container {
+    display: none;
 }
 
 #messages {
-    background-color: #D9D9D9;
+    background-color: #f1f1f1;
     border: solid#ddd;
     padding: 70px;
-    height: 300px;
-    width: 700px;
+    height: 500px;
+    width: 900px;
     border-radius: 30px;
     border: 1px solid #000000;    
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+#messages:hover {
+    background-color: #c6c0c0;
+}
+
+.message span {
+    display: block;
 }
 
 .container {
     text-align: center;
+    opacity: 1; 
+    transition: opacity 550ms ease-in-out;
+    display: block; 
+}
+
+#welcome-form.hide {
+    opacity: 0; 
+    transition: opacity 550ms ease-in-out;
+}
+
+#chat-room {
+    opacity: 0;
+    transition: opacity 550ms ease-in-out;
+    display: none; 
+}
+
+#chat-room.show {
+    display: block;
+    opacity: 1;
 }
 
 h1 {
@@ -108,7 +157,7 @@ h1 {
   }
   
   .logo:hover {
-    transform: rotate(360deg);
+    transform: rotate(10deg);
   }
 
 .logounipar {
@@ -138,8 +187,12 @@ h1 {
     width: 300px;
 }
 
+.escreva:hover {
+    animation: pulse 1s;
+}
+
 .enviar {
-    background-color: #3498DB;
+    background-color: #1a1a1a;
     border: 0px;
     border-radius: 30px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
@@ -150,11 +203,12 @@ h1 {
 }   
 
 .enviar:hover {
-    background-color: #76B9F1;
+    background-color: #333333;
+    animation: pulse 1s ;
 }
 
 .sair_sala {
-    margin-left: 150px;
+    margin-left: 300px;
     background-color: #b71c1c;
     color: #FFFFFF;
     border: 0px;
@@ -163,22 +217,11 @@ h1 {
     width: 150px;
     transition: background-color 0.3s;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    
 }
 
 .sair_sala:hover {
     background-color: #F44336;
-}
-
-.logo_2 {
-    transition: transform 0.5s ease;
-    width: 10%;
-    height: 10%;
-  }
-  
-  .logo_2:hover {
-    transform: rotate(360deg);
-  }
-
-.logounipar_2 {
-    text-align: left;
+    animation: pulse 1s infinite;
+    animation: glow 1s ease-in-out infinite;
 }
