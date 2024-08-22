@@ -3,17 +3,23 @@ var username = null;
 
 document.getElementById("container").style.display = "block";
 
-function enterChatRoom() {
-    username = document.getElementById("username").value.trim();
-
-    if(username) {
-        document.getElementById("container").style.display = "none";
-        document.getElementById("chat-room").style.display = "block";
-        connect();
-    } else {
-        alert("Por favor, inserir um nickname");
+    function enterChatRoom() {
+        username = document.getElementById("username").value.trim();
+    
+        if(username){
+            var welcomeForm = document.getElementById("container");
+            welcomeForm.classList.add('hide');
+            setTimeout(() => {
+                welcomeForm.style.display = 'none';
+                var chatRoom = document.getElementById('chat-room');
+                chatRoom.style.display = 'block';
+                setTimeout(() => { chatRoom.classList.add('show'); }, 10);
+            }, 550);
+            connect();
+        } else {
+            alert("Por favor, inserir um nickname");
+        }
     }
-}
 
     function connect() {
 
@@ -37,31 +43,37 @@ function enterChatRoom() {
             }));
         });
     }
-    function showMessage(message){
+    function showMessage(message) {
+        console.log("Mensagem recebida:", message); // Verifica se a mensagem está chegando
+    
         var messageElement = document.createElement('div');
-
-        if(message.type === 'JOIN'){
-            messageElement.innerText = message.sender + " entrou na sala ";
-        }else if(message.type === 'LEAVE') {
-            messageElement.innerText = message.sender + " saiu da sala ";
-        }else {
-            messageElement.innerText = message.sender + " disse: " + message.content;
-        }    
-     
-     document.getElementById('messages').appendChild(messageElement);
+        messageElement.classList.add('message');
+    
+        if (message.type === 'JOIN') {
+            messageElement.innerText = message.sender + " entrou na sala.";
+        } else if (message.type === 'LEAVE') {
+            messageElement.innerText = message.sender + " saiu da sala.";
+        } else if (message.type === 'CHAT') {
+            var textElement = document.createElement('span');
+            textElement.innerText = message.sender + " disse: " + message.content;
+            messageElement.appendChild(textElement);
+        }
+    
+        console.log("Adicionando mensagem ao DOM.");
+        document.getElementById('messages').appendChild(messageElement);
     }
 
-    function sendMessage(){
+    function sendMessage() {
         var messageContent = document.getElementById("messageInput").value.trim();
-
-        if(messageContent && stompClient){
+    
+        if (messageContent && stompClient) {
             var chatMessage = {
                 sender: username,
                 content: messageContent,
                 type: 'CHAT'
             };
-            stompClient.send('/app/sendMessage',{},JSON.stringify(chatMessage));
-            document.getElementById("messageInput").value = '';
+            stompClient.send('/app/sendMessage', {}, JSON.stringify(chatMessage));
+            document.getElementById("messageInput").value = ''; 
         }
     }
 
@@ -73,10 +85,20 @@ function enterChatRoom() {
             };
         stompClient.send("/app/leaveUser",{},JSON.stringify(chatMessage));
         stompClient.disconnect(()=>{
-            console.log("Disconectado");
-            document.getElementById("chat-room").style.display = "none";
-            document.getElementById("container").style.display = "block";
-            
-        })
+            console.log("Desconectado");
+
+        
+            var chatRoom = document.getElementById("chat-room");
+            chatRoom.classList.remove('show');
+            setTimeout(() => {
+                chatRoom.style.display = "none";
+                var welcomeForm = document.getElementById('container');
+                welcomeForm.style.display = 'block';
+                setTimeout(() => { welcomeForm.classList.remove('hide'); }, 10);
+            }, 550); 
+        });
+
+
+        
         }
     }
