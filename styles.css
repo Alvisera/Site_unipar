@@ -31,7 +31,6 @@ body {
 
 #chat-room{
     display:none;
-    overflow: hidden;
     
 }
 
@@ -132,11 +131,11 @@ h1 {
 
 .escreva {
     border-radius: 30px;
-    border: 1px solid #000000;  
-    padding: 10px;
-    margin-top: 50px;
-    margin-left: 30px;
-    
+    border: 0px solid #000000;  
+    padding:9px;
+    margin-top: 40px;
+    margin-left: 10px;
+    width: 300px;
 }
 
 .enviar {
@@ -146,6 +145,7 @@ h1 {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s;
     width: 9%;
+    margin-left: 10px;
 
 }   
 
@@ -154,8 +154,31 @@ h1 {
 }
 
 .sair_sala {
-    margin-left: 450px;
-    border-radius: 30px;
+    margin-left: 150px;
+    background-color: #b71c1c;
+    color: #FFFFFF;
     border: 0px;
+    border-radius: 30px;
+    padding: 10px;
+    width: 150px;
+    transition: background-color 0.3s;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
 
+.sair_sala:hover {
+    background-color: #F44336;
+}
+
+.logo_2 {
+    transition: transform 0.5s ease;
+    width: 10%;
+    height: 10%;
+  }
+  
+  .logo_2:hover {
+    transform: rotate(360deg);
+  }
+
+.logounipar_2 {
+    text-align: left;
 }
