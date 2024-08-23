@@ -37,11 +37,12 @@
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 100px;
     font-family: Arial, sans-serif;
-    animation: gradientBG 7s ease infinite;
-    background: linear-gradient(135deg, #7B68EE 25%, #87CEEB 50%, #46ADB4 75%);
-    background-size: 400% 400%;
+    background: url(../UNIPAR_1/image.png);
+    /*animation: gradientBG 7s ease infinite;*/
+    /*background: linear-gradient(135deg, #7B68EE 25%, #87CEEB 50%, #46ADB4 75%);*/
+    /*background-size: 400% 400%;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,7 +128,7 @@ h1 {
 }
 
 .login-box input {
-    width: 95%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -192,18 +193,18 @@ h1 {
 }
 
 .enviar {
-    background-color: #1a1a1a;
+    background-color: #32964E;
     border: 0px;
     border-radius: 30px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s;
     width: 9%;
     margin-left: 10px;
-
+    padding: 2.5px;
 }   
 
 .enviar:hover {
-    background-color: #333333;
+    background-color: #00EB42;
     animation: pulse 1s ;
 }
 
