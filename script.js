@@ -14,6 +14,9 @@ document.getElementById("container").style.display = "block";
                 var chatRoom = document.getElementById('chat-room');
                 chatRoom.style.display = 'block';
                 setTimeout(() => { chatRoom.classList.add('show'); }, 10);
+                var menuHamburguer = document.getElementById('menu-hamburguer');
+                menuHamburguer.style.display = 'none';
+                
             }, 550);
             connect();
         } else {
@@ -50,7 +53,7 @@ document.getElementById("container").style.display = "block";
         messageElement.classList.add('message');
     
         if (message.type === 'JOIN') {
-            messageElement.innerText = message.sender + " entrou na sala.";
+            messageElement.innerText = message.sender       + " entrou na sala.";
         } else if (message.type === 'LEAVE') {
             messageElement.innerText = message.sender + " saiu da sala.";
         } else if (message.type === 'CHAT') {
