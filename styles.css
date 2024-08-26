@@ -39,7 +39,7 @@ body {
     margin: 0;
     padding: 100px;
     font-family: Arial, sans-serif;
-    background: url(../UNIPAR_1/image.png);
+    background: url(image.png);
     /*animation: gradientBG 7s ease infinite;*/
     /*background: linear-gradient(135deg, #7B68EE 25%, #87CEEB 50%, #46ADB4 75%);*/
     /*background-size: 400% 400%;*/
