@@ -26,7 +26,7 @@ document.getElementById("container").style.display = "block";
 
     function connect() {
 
-        var socket = new SockJS('https://75a5d5e89ffe.ngrok.app/chat-websocket', {
+        var socket = new SockJS('http://localhost:8080/chat-websocket', {
             headers: {
                 'ngrok-skip-browser-warning': 'true'
             }
@@ -105,3 +105,26 @@ document.getElementById("container").style.display = "block";
         
         }
     }
+
+    document.getElementById("messageInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage(); 
+        }
+    });
+
+    document.getElementById("username").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            enterChatRoom(); 
+        }
+    });
+    
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            if (document.getElementById('chat-room').style.display === 'block') {
+                leaveChat();
+            }
+        }
+    });
